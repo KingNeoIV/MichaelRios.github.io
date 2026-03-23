@@ -1,0 +1,143 @@
+/* ================================
+   Sidebar Layout and Styling
+   ================================ */
+.sidebar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 170px;
+    height: 100vh;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-footer
+{
+    padding: 15px;
+    font-size: 0.5rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* Sidebar link styling */
+.sidebar .nav-link
+{
+    padding: 12px 20px;
+    font-size: 1.1rem;
+}
+
+.sidebar .nav-link:hover
+{
+    background-color: #495057;
+}
+
+
+/* ================================
+   Main Content + Hero Text Styling
+   ================================ */
+.hero-text
+{
+    background: rgba(0, 0, 0, 0.55);
+    padding: 25px;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    color: white;
+    margin-bottom: 30px;
+}
+
+.main-container
+{
+    margin-left: 170px; /* Leaves room for the fixed sidebar */
+    padding: 20px;
+    min-height: 100vh;
+    background-image: url('images/AM-Victoria-campus.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+.mt-20
+{
+    margin-top:20px;
+}
+
+/* ================================
+   Profile Picture Styling
+   ================================ */
+.profile-pic
+{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgb(0,0,0,0.6);
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ================================
+   Project Card Styling (Shared)
+   ================================ */
+.project-card,
+.project-card-usellit,
+.project-card-spacecowboy
+{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Dark overlay for readability */
+.project-card::before,
+.project-card-usellit::before,
+.project-card-spacecowboy::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* Ensures text appears above the overlay */
+.project-card .card-body,
+.project-card-usellit .card-body,
+.project-card-spacecowboy .card-body
+{
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ================================
+   Individual Project Card Images
+   ================================ */
+.project-card
+{
+    background-image: url("images/AM-Victoria-campus.jpg");
+}
+
+.project-card-usellit
+{
+    background-image: url("images/u-sell-itPic.png");
+}
+
+.project-card-spacecowboy
+{
+    background-image: url("images/spacecowboy.png");
+}
