@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Michael Rios — Computer Science student and developer building clean, responsive web experiences and hands-on software projects.">
+
+    <!-- Bootstrap 5.3.8 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- GLOBAL CSS -->
+    <link href="../styles.css" rel="stylesheet">
+
+    <!-- GAME CSS -->
+    <link href="locked-up.css" rel="stylesheet">
+
+    <title>Locked-Up! Card Game</title>
+    </head>
+
+    <body>
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar bg-dark">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link text-white" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../contact.html">Contact</a></li>
+            </ul>
+
+            <div class="sidebar-footer text-white">
+                <p>&copy; 2026 KingNeoIV. All rights reserved.</p>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-container">
+
+            <!-- GAME WINDOW -->
+            <div id="game-window">
+
+                <div id="table-area">
+                    <div class="table-surface">
+                        <!-- Place holder for all card locations -->
+                        <div id="player-card-slot" class="card-slot-placeholder"></div>
+                        <div id="partner-card-slot" class="card-slot-placeholder"></div>
+                        <div id="opponent1-card-slot" class="card-slot-placeholder"></div>
+                        <div id="opponent2-card-slot" class="card-slot-placeholder"></div>
+
+                        <!-- Shuffle Button -->
+                        <button id="shuffle-btn" class="btn btn-primary">Shuffle Deck</button>
+
+                        <!-- SHUFFLE DECK -->
+                        <div id="visual-deck"></div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </body>
+</html>
