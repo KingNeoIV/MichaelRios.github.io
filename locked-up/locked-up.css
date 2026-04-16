@@ -79,6 +79,44 @@
     /* Needed for absolute children */
 }
 
+#table-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#table-wrapper {
+    transform-origin: center center;
+}
+
+@media (max-width: 1400px) {
+    #table-wrapper {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 1200px) {
+    #table-wrapper {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width: 1000px) {
+    #table-wrapper {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 800px) {
+    #table-wrapper {
+        transform: scale(0.6);
+    }
+}
+
+
 
 /* ================================
    Oval Table
