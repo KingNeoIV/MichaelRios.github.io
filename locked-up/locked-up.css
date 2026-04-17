@@ -16,7 +16,6 @@ body {
     padding: 0;
 }
 
-
 /* ================================
    Game Window
    ================================ */
@@ -30,9 +29,6 @@ body {
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,22 +36,23 @@ body {
 }
 
 /* ================================
-   Table Wrapper + Scaling
+   Table Wrapper (Auto Scaling)
    ================================ */
 #table-wrapper {
-    width: 100%;
-    height: 100%;
+    width: 1000px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     transform-origin: center center;
 }
 
-@media (max-width: 1400px) { #table-wrapper { transform: scale(0.9); } }
-@media (max-width: 1200px) { #table-wrapper { transform: scale(0.8); } }
-@media (max-width: 1000px) { #table-wrapper { transform: scale(0.7); } }
-@media (max-width: 800px)  { #table-wrapper { transform: scale(0.6); } }
+/* Auto-scale table to ANY screen */
+@media (max-width: 1000px) {
+    #table-wrapper {
+        transform: scale(calc(100vw / 1000));
+    }
+}
 
 /* ================================
    Oval Table
@@ -63,9 +60,9 @@ body {
 .table-surface {
     width: 1000px;
     height: 700px;
-    background: #0b6623; /* green felt */
+    background: #0b6623;
     border-radius: 50%;
-    border: 25px solid #5a3e1b; /* wood trim */
+    border: 25px solid #5a3e1b;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
     position: relative;
 }
@@ -75,8 +72,8 @@ body {
    ================================ */
 #shuffle-btn {
     position: absolute;
-    top: 100%;
-    left: 125%;
+    bottom: 5%;
+    left: 50%;
     transform: translateX(-50%);
     z-index: 10;
 
@@ -97,21 +94,22 @@ body {
    Deck
    ================================ */
 #visual-deck {
-    top: 80%;
-    left: 45%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 70px;
     height: 95px;
+    transform: translate(-50%, -50%);
     background-image: url('assets/card/Back_4.png');
     background-size: cover;
     background-position: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    position: absolute;
     transition: transform 0.15s ease;
 }
 
-.shuffle-tilt  { transform: rotate(6deg) translateX(8px); }
-.shuffle-tilt2 { transform: rotate(-6deg) translateX(-8px); }
+.shuffle-tilt  { transform: translate(-50%, -50%) rotate(6deg); }
+.shuffle-tilt2 { transform: translate(-50%, -50%) rotate(-6deg); }
 
 /* ================================
    Card Slot Placeholders
@@ -126,26 +124,26 @@ body {
 }
 
 #partner-card-slot {
-    top: 13%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #player-card-slot {
-    top: 87%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #opponent1-card-slot {
     top: 50%;
-    left: 10%;
+    left: 15%;
     transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 #opponent2-card-slot {
     top: 50%;
-    left: 90%;
+    left: 85%;
     transform: translate(-50%, -50%) rotate(-90deg);
 }
 
@@ -162,25 +160,73 @@ body {
 }
 
 #partner-portrait {
-    top: -100px;
+    top: -60px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #player-portrait {
-    bottom: -210px;
+    bottom: -120px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #opponent1-portrait {
     top: 50%;
-    left: -100px;
+    left: -60px;
     transform: translate(-50%, -50%);
 }
 
 #opponent2-portrait {
     top: 50%;
-    right: -210px;
-    transform: translate(-50%, -50%);
+    right: -120px;
+    transform: translate(50%, -50%);
+}
+
+/* ================================
+   📱 MOBILE MODE
+   ================================ */
+@media (max-width: 768px) {
+
+    /* Scale table even smaller */
+    #table-wrapper {
+        transform: scale(calc(100vw / 1200));
+    }
+
+    /* Smaller card slots */
+    .card-slot-placeholder {
+        width: 12vw;
+        height: 16vw;
+    }
+
+    /* Smaller portraits */
+    .portrait-placeholder {
+        width: 18vw;
+        height: 18vw;
+    }
+
+    /* Reposition portraits */
+    #partner-portrait { top: 5%; }
+    #player-portrait { bottom: 5%; }
+    #opponent1-portrait { left: 5%; }
+    #opponent2-portrait { right: 5%; }
+
+    /* Reposition card slots */
+    #partner-card-slot { top: 20%; }
+    #player-card-slot { top: 80%; }
+    #opponent1-card-slot { left: 20%; }
+    #opponent2-card-slot { left: 80%; }
+
+    /* Deck scales */
+    #visual-deck {
+        width: 12vw;
+        height: 16vw;
+    }
+
+    /* Shuffle button stays inside table */
+    #shuffle-btn {
+        bottom: 8%;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
