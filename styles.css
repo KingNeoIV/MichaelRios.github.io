@@ -191,8 +191,8 @@
 
     /* Force nav links to sit side-by-side on mobile */
     .sidebar .nav {
-        display: flex !important;
-        flex-direction: row !important;
+        display: flex;
+        flex-direction: row;
         justify-content: space-around;
         width: 100%;
     }
@@ -214,4 +214,58 @@
     .hero-text {
         margin-top: 20px;
     }
+}
+
+/* ================================
+    Locked-Up! Project Card Image
+    ================================ */
+.project-card-lockedup {
+    background-image: url("locked-up/assets/ui/locked-upbg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-lockedup:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px rgba(0, 0, 0, 0.45);
+}
+
+.project-card-lockedup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.project-card-lockedup .card-body {
+    position: relative;
+    z-index: 2;
+}
+
+/* ================================
+    Locked-Up! Modal Styling
+    ================================ */
+#lockedUpModal .modal-dialog,
+#lockedUpModal .modal-content,
+#lockedUpModal .modal-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    background: black;
+}
+
+#lockedUpModal iframe {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    display: block;
 }
