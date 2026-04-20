@@ -49,10 +49,27 @@ body {
 ================================ */
 @media (max-width: 900px) and (orientation: landscape) {
     #table-wrapper {
-        width: 700px;   
-        height: 490px;  
+        width: 700px;
+        height: 490px;
+    }
+
+    .table-surface {
+        width: 700px;
+        height: 490px;
+        border-width: 18px; /* optional: shrink border */
+    }
+
+    .card {
+        width: 65px;
+        height: 90px;
+    }
+
+    .portrait-placeholder {
+        width: 90px;
+        height: 90px;
     }
 }
+
 
 
 
