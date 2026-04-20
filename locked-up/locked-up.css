@@ -47,13 +47,13 @@ body {
 /* ================================
    Mobile Landscape Scaling
 ================================ */
-@media (max-width: 1000px), (max-height: 700px) {
+@media (max-width: 900px) and (orientation: landscape) {
     #table-wrapper {
-        transform: scale(
-            min(calc(100vw / 1000), calc(100vh / 700))
-        );
+        width: 700px;   
+        height: 490px;  
     }
 }
+
 
 
 @media (orientation: portrait) {
