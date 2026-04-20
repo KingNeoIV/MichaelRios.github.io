@@ -1,6 +1,6 @@
 /* ================================
    Desktop scaling (optional)
-   ================================ */
+================================ */
 @media (min-width: 1024px) {
     html {
         font-size: 29px;
@@ -18,17 +18,12 @@ body {
 
 /* ================================
    Game Window
-   ================================ */
+================================ */
 #game-window {
     width: 100vw;
     height: 100vh;
-    margin: 0;
-    padding: 0;
-
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +32,7 @@ body {
 
 /* ================================
    Table Wrapper (Auto Scaling)
-   ================================ */
+================================ */
 #table-wrapper {
     width: 1000px;
     height: 700px;
@@ -47,7 +42,6 @@ body {
     transform-origin: center center;
 }
 
-/* Auto-scale table to ANY screen */
 @media (max-width: 1000px) {
     #table-wrapper {
         transform: scale(calc(100vw / 1000));
@@ -56,7 +50,7 @@ body {
 
 /* ================================
    Oval Table
-   ================================ */
+================================ */
 .table-surface {
     width: 1000px;
     height: 700px;
@@ -69,14 +63,13 @@ body {
 
 /* ================================
    Shuffle Button
-   ================================ */
+================================ */
 #shuffle-btn {
     position: absolute;
-    bottom: 5%;
-    left: 50%;
+    bottom: -140px;
+    left: 75%;
     transform: translateX(-50%);
     z-index: 10;
-
     padding: 10px 20px;
     background: #0d6efd;
     color: white;
@@ -92,7 +85,7 @@ body {
 
 /* ================================
    Deck
-   ================================ */
+================================ */
 #visual-deck {
     position: absolute;
     top: 50%;
@@ -102,131 +95,103 @@ body {
     transform: translate(-50%, -50%);
     background-image: url('assets/card/Back_4.png');
     background-size: cover;
-    background-position: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.15s ease;
-}
-
-.shuffle-tilt  { transform: translate(-50%, -50%) rotate(6deg); }
-.shuffle-tilt2 { transform: translate(-50%, -50%) rotate(-6deg); }
-
-/* ================================
-   Card Slot Placeholders
-   ================================ */
-.card-slot-placeholder {
-    position: absolute;
-    width: 70px;
-    height: 95px;
-    border: 2px dashed rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-#partner-card-slot {
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#player-card-slot {
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#opponent1-card-slot {
-    top: 50%;
-    left: 15%;
-    transform: translate(-50%, -50%) rotate(-90deg);
-}
-
-#opponent2-card-slot {
-    top: 50%;
-    left: 85%;
-    transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 /* ================================
-   Portrait Placeholders
-   ================================ */
+   Portraits
+================================ */
 .portrait-placeholder {
     position: absolute;
     width: 110px;
     height: 110px;
-    border: 2px dashed rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.665);
+    box-shadow: 0 0 12px rgba(248, 232, 8, 0.573);
 }
 
 #partner-portrait {
-    top: -60px;
+    background-image: url('assets/characters/1.png');
+    top: -150px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
 
 #player-portrait {
-    bottom: -120px;
+    background-image: url('assets/characters/2.png');
+    bottom: -160px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
 
 #opponent1-portrait {
+    background-image: url('assets/characters/3.png');
     top: 50%;
-    left: -60px;
-    transform: translate(-50%, -50%);
+    left: -160px;
+    transform: translateY(-50%);
 }
 
 #opponent2-portrait {
+    background-image: url('assets/characters/4.png');
     top: 50%;
-    right: -120px;
-    transform: translate(50%, -50%);
+    right: -160px;
+    transform: translateY(-50%);
 }
 
 /* ================================
-   📱 MOBILE MODE
-   ================================ */
-@media (max-width: 1000px) {
+   Cards
+================================ */
+.card {
+    position: absolute;
+    width: 85px;
+    height: 115px;
+    background-size: cover;
+    border-radius: 8px;
+    transition: top 0.35s ease, left 0.35s ease, transform 0.35s ease;
+}
 
-    /* Scale table even smaller */
-    #table-wrapper {
-        transform: scale(calc(min(100vw / 1200, 100vh / 700)));
-    }
+/* ================================
+   Hand Areas (your exact layout)
+================================ */
+#player-hand,
+#partner-hand,
+#opponent1-hand,
+#opponent2-hand {
+    position: absolute;
+    height: 140px;
+    pointer-events: none;
+}
 
-    /* Smaller card slots */
-    .card-slot-placeholder {
-        width: 12vw;
-        height: 16vw;
-    }
+/* Player bottom */
+#player-hand {
+    top: 520px;
+    left: 50%;
+    width: 500px;
+    transform: translateX(-50%);
+}
 
-    /* Smaller portraits */
-    .portrait-placeholder {
-        width: 18vw;
-        height: 18vw;
-    }
+/* Partner top */
+#partner-hand {
+    top: 30px;
+    left: 50%;
+    width: 500px;
+    transform: translateX(-50%);
+}
 
-    /* Reposition portraits */
-    #partner-portrait { top: 5%; }
-    #player-portrait { bottom: 5%; }
-    #opponent1-portrait { left: 5%; }
-    #opponent2-portrait { right: 5%; }
+/* Opponent left */
+#opponent1-hand {
+    left: -110px;
+    top: 50%;
+    width: 500px;
+    transform: translateY(-50%) rotate(-90deg);
+}
 
-    /* Reposition card slots */
-    #partner-card-slot { top: 20%; }
-    #player-card-slot { top: 80%; }
-    #opponent1-card-slot { left: 20%; }
-    #opponent2-card-slot { left: 80%; }
-
-    /* Deck scales */
-    #visual-deck {
-        width: 12vw;
-        height: 16vw;
-    }
-
-    /* Shuffle button stays inside table */
-    #shuffle-btn {
-        bottom: 8%;
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
+/* Opponent right */
+#opponent2-hand {
+    right: -110px;
+    top: 50%;
+    width: 500px;
+    transform: translateY(-50%) rotate(90deg);
 }
